@@ -1,19 +1,19 @@
-package com.example.demo.security;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Component;
-
-//import com.blog.blog.dao.UserDao;
-//import com.blog.blog.dto.UserDto;
-
-import jakarta.servlet.http.HttpSession;
-import lombok.extern.slf4j.Slf4j;
-
-//MemberService 클래스에서 구핸해도 됨
+//package com.example.demo.security;
+//
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.security.core.userdetails.User;
+//import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.core.userdetails.UserDetailsService;
+//import org.springframework.security.core.userdetails.UsernameNotFoundException;
+//import org.springframework.stereotype.Component;
+//
+//import com.example.demo.dao.UserDao;
+//import com.example.demo.dto.UserDto;
+//
+//import jakarta.servlet.http.HttpSession;
+//import lombok.extern.slf4j.Slf4j;
+//
+////MemberService 클래스에서 구핸해도 됨
 //@Component
 //@Slf4j
 ////UserDetailsService인테페이스의 loadUserByUsername메소드로 로그인 구현 
@@ -31,7 +31,7 @@ import lombok.extern.slf4j.Slf4j;
 //		//로그인 성공시 User를  반환, 실패시 핸들러에 전달 
 //		UserDto mb = uDao.getUserInfo(u_id);
 //		
-//		s.setAttribute("name", mb.getU_name());
+//		s.setAttribute("name", mb.getUserName());
 //		
 //		log.info("======member:{}",mb);
 //		
@@ -42,7 +42,6 @@ import lombok.extern.slf4j.Slf4j;
 //		//User클래스: UserDetails의 구현체
 //		//필수:아이디,비밀번호, 권한, 선택: disabled(t/f(로그인안됨)), accountLocked(t/f(로그인안됨)),accountExpired(t/f) 
 ////		return User.builder().username(u_id).password(mb.getU_pw()).roles(mb.getRole()).build();
-//		return User.builder().username(u_id).password(mb.getU_pw()).build();
+//		return User.builder().username(id).password(mb.getPw()).build();
 //	}
 //}
-

@@ -1,5 +1,15 @@
 package com.example.demo.dao;
 
-public class UserDao {
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import com.example.demo.dto.UserDto;
+
+@Mapper
+public interface UserDao {
+
+	UserDto getUserInfo(String id);
+
+	
+	
 }
