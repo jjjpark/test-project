@@ -1,4 +1,4 @@
-package com.blog.blog.security;
+package com.example.demo.security;
 
 import java.io.IOException;
 
