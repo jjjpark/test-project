@@ -8,6 +8,9 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
+import com.example.demo.dto.RoomDto;
+import com.example.demo.service.RoomService;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Component
@@ -15,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 public class SseEmitters {
 	
 	private static final AtomicLong counter=new AtomicLong();
-	
+	private RoomService rSer;
 	private final List<SseEmitter> emitters=new CopyOnWriteArrayList<>();
 
 	public SseEmitter add(SseEmitter emitter) {
@@ -41,14 +44,15 @@ public class SseEmitters {
 	}//add 종료
 	
 	
-	public void count() {
+	public void count(RoomDto rDto) {
 		long count=counter.incrementAndGet();
 		log.info("count into2");
+		List<RoomDto> rList=rSer.roominsert(rDto);
 		emitters.forEach(emitter->{
 			try {
 				emitter.send(SseEmitter.event()
 						.name("count")
-						.data("test"));
+						.data(count));
 			}catch(IOException e) {
 				throw new RuntimeException(e);
 			}

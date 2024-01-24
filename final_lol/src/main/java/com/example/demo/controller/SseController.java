@@ -40,6 +40,7 @@ public class SseController {
 	@PostMapping("/count")
 	public ResponseEntity<Void> count(){
 		log.info("==============into count");
+		
 		sseEmitters.count();
 		return ResponseEntity.ok().build();
 	}

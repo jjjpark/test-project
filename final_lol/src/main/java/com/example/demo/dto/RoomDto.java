@@ -5,10 +5,11 @@ import lombok.Data;
 
 @Data
 @Builder
-public class roomDto {
+public class RoomDto {
 	private String id;
 	private String title;
 	private String tier;
 	private String position;
 	private String memo;
+	private String champion;
 }
