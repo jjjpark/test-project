@@ -5,16 +5,12 @@
 <head>
 <meta charset="EUC-KR">
 <title>matching</title>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script defer src="/javascript/ssejs.js"></script>
 </head>
 <body>
 <h3>matching</h3>
-<script>
-	const sse=new EventSource("http://localhost:8081/duo_matching/matching");
-	
-	sse.addEventListener('connect', (e) => { // connect라는 이름을 가진 이벤트를 받는다
-		const { data: receivedConnectData } = e;
-		console.log('connect event data: ',receivedConnectData);  // "connected
-	});
-</script>
+<button id="test">test</button>
+
 </body>
 </html>

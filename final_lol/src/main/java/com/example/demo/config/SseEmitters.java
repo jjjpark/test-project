@@ -43,6 +43,7 @@ public class SseEmitters {
 	
 	public void count() {
 		long count=counter.incrementAndGet();
+		log.info("count into2");
 		emitters.forEach(emitter->{
 			try {
 				emitter.send(SseEmitter.event()
