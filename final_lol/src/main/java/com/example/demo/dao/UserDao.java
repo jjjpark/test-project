@@ -10,6 +10,6 @@ public interface UserDao {
 
 	UserDto getUserInfo(String id);
 
-	
-	
+	boolean join(UserDto uDto);
+
 }
