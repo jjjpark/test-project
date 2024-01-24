@@ -22,7 +22,7 @@ public class SseController {
 		this.sseEmitters=sseEmitters;
 	}
 	
-	@GetMapping(value="/connect", produces=MediaType.TEXT_EVENT_STREAM_VALUE)
+	@GetMapping(value="/duo_matching/matching", produces=MediaType.TEXT_EVENT_STREAM_VALUE)
 	public ResponseEntity<SseEmitter> connect(){
 		SseEmitter emitter=new SseEmitter(60*1000L);
 		sseEmitters.add(emitter);

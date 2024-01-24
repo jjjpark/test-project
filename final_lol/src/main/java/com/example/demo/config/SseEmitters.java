@@ -17,11 +17,7 @@ public class SseEmitters {
 	private static final AtomicLong counter=new AtomicLong();
 	
 	private final List<SseEmitter> emitters=new CopyOnWriteArrayList<>();
-	
 
-	
-	
-	
 	public SseEmitter add(SseEmitter emitter) {
 		this.emitters.add(emitter);
 		log.info("new emitter added:{}", emitter);
