@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>index.jsp</h3>
-<a href="/duo_maching/matching">매칭 들어가기</a>
+
 </body>
 </html>
