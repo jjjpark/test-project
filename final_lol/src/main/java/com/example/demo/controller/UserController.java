@@ -24,7 +24,7 @@ public class UserController {
 	
 	@GetMapping("/")
 	public String home() {
-		return "index";
+		return "index"; // 기본적으로 찾아감
 	}
 	
 	@GetMapping("/user/loginfrm")
@@ -63,6 +63,11 @@ public class UserController {
 			m.addAttribute("msg", "회원가입에 실패하셨습니다.");
 			return "redirect:/user/joinfrm";
 		}
+	}
+	
+	@GetMapping("/duo/duo")
+	public String duo() {
+		return "duo/duo";
 	}
 	
 }

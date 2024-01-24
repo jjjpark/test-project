@@ -22,7 +22,7 @@
 <title>Main</title>
 </head>
 <body>
-h1
+<h1>index</h1>
 <!-- 로그인 안하면 나옴 -->
 <sec:authorize access="isAnonymous()">
 	<a href="/user/loginfrm">login</a>
@@ -32,7 +32,9 @@ h1
 <!-- 로그인 한 후 나옴 -->
 <sec:authorize access="isAuthenticated()">
 	<a href="/user/logout">logout</a>
+	<a href="/duo/duo">duo</a>	
 </sec:authorize>
+
 
 
 </body>

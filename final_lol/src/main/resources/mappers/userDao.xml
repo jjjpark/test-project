@@ -4,14 +4,14 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="com.example.demo.dao.UserDao">
-<!-- 	<select id="login" parameterType="HashMap" resultType="boolean"> -->
-<!-- 		select count(*) from user where u_id=#{u_id} and u_pw=#{u_pw} -->
-<!-- 	</select> -->
+	<!-- <select id="login" parameterType="HashMap" resultType="boolean"> -->
+	<!-- select count(*) from user where u_id=#{u_id} and u_pw=#{u_pw} -->
+	<!-- </select> -->
 
 
-<!-- 	<select id="getSecurityPw" parameterType="String" resultType="String"> -->
-<!-- 		SELECT u_pw FROM user WHERE u_id = #{u_id} -->
-<!-- 	</select> -->
+	<!-- <select id="getSecurityPw" parameterType="String" resultType="String"> -->
+	<!-- SELECT u_pw FROM user WHERE u_id = #{u_id} -->
+	<!-- </select> -->
 
 
 	<select id="getUserInfo" resultType="UserDto">
@@ -20,7 +20,11 @@
 	</select>
 
 	<insert id="join" parameterType="UserDto">
-		insert into user(id, pw, lolId) values(#{id}, #{pw}, #{lolId})
+		insert into user(id, pw, lolId)
+		values(#{id}, #{pw}, #{lolId})
 	</insert>
-	
+
+	<select id="userInfo" resultType="UserDto">
+		select * from user
+	</select>
 </mapper>
