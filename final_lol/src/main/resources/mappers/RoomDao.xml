@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.example.demo.dao">
+<mapper namespace="com.example.demo.dao.RoomDao">
 	<insert id="roomcreate">
-		insert into values (null, #{title}, #{id}, #{tier}, #{position}, #{memo}, #{champion})
+		insert into room (title, position, memo, champion) values (#{title}, #{position}, #{memo}, #{champion})
 	</insert>
-	<select id="serchroom">
-		select title from room
+	<select id="roomsearch">
+		select * from room order by t_id desc limit 10 ;
 	</select>
 </mapper>

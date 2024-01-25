@@ -12,8 +12,6 @@
 <h3>matching</h3>
 <!-- <p id="result"></p> -->
 	title<input id="title" type="text"></input></br>
-	id<input id="id" type="text"></input></br>
-	tier<input id="tier" type="text"></input></br>
 	position<input id="position" type="text"></input></br>
 	memo<input id="memo" type="text"></input></br>
 	champion<input id="champion" type="text"></input></br>
