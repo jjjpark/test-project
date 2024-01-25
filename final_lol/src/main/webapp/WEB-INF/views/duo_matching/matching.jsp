@@ -21,7 +21,7 @@
 <a class="rlist"></a>
 <c:forEach var="rList" items="${rList}">
 <div>
-	<h3>${rList.title}</h3>
+	<h3>${rList.title}</h3>5
 	<p>${rList.memo}</p>
 	<p>${rList.position}</p>
 	<p>${rList.champion}</p>
