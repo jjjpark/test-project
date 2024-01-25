@@ -1,13 +1,8 @@
 package com.example.demo.service;
 
-<<<<<<< HEAD
+
 import org.springframework.stereotype.Service;
 
-@Service
-public class UserService {
-	
-}
-=======
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,4 +26,4 @@ public class UserService {
 	
 	
 	    }
->>>>>>> 8ee57d56921c3022c0de2b7b2c2bd56467dd8554
+

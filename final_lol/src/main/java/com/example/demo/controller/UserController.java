@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import java.util.List;
-<<<<<<< HEAD
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,28 +14,6 @@ import com.example.demo.service.RoomService;
 
 import lombok.extern.slf4j.Slf4j;
 
-@Controller
-@Slf4j
-public class UserController {
-	@Autowired
-	SseEmitters smit;
-	@Autowired
-	RoomService rSer;
-	
-	@GetMapping("/")
-	public String main() {
-		return "index";
-	}
-	@GetMapping("/duo_maching/matching")
-	public String room(Model model) {
-		log.info("======move");
-		List<RoomDto> rList=rSer.roomsearch();
-		model.addAttribute("rList", rList);
-
-		return "duo_matching/matching";
-	}
-}
-=======
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
@@ -48,6 +25,7 @@ import com.example.demo.service.UserService;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
+@Slf4j
 public class UserController {
 
 	@Autowired
@@ -89,6 +67,22 @@ public class UserController {
 		}
 		return "redirect:/login";
 	}
+	@Autowired
+	SseEmitters smit;
+	@Autowired
+	RoomService rSer;
+	
+	@GetMapping("/")
+	public String main() {
+		return "index";
+	}
+	@GetMapping("/duo_maching/matching")
+	public String room(Model model) {
+		log.info("======move");
+		List<RoomDto> rList=rSer.roomsearch();
+		model.addAttribute("rList", rList);
+
+		return "duo_matching/matching";
+	}
 
 }
->>>>>>> 8ee57d56921c3022c0de2b7b2c2bd56467dd8554
