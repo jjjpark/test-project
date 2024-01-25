@@ -8,4 +8,7 @@
 	<select id="roomsearch">
 		select * from room order by t_id desc limit 10 ;
 	</select>
+	<select id="newroom">
+		select*from room order by t_id desc limit 1;
+	</select>
 </mapper>

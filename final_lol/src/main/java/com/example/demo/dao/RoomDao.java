@@ -10,4 +10,5 @@ import com.example.demo.dto.RoomDto;
 public interface RoomDao {
 	boolean roomcreate(RoomDto rDto);
 	List<RoomDto> roomsearch();
+	List<RoomDto> newroom();
 }

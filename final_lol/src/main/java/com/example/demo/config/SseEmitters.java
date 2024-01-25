@@ -18,57 +18,57 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 @Slf4j
 public class SseEmitters {
-	
-	private static final AtomicLong counter=new AtomicLong();
+
+	private static final AtomicLong counter = new AtomicLong();
 	@Autowired
 	private RoomService rSer;
 //	@Autowired
 //	private RoomDto rDto;
-	private final List<SseEmitter> emitters=new CopyOnWriteArrayList<>();
+	private final List<SseEmitter> emitters = new CopyOnWriteArrayList<>();
 
 	public SseEmitter add(SseEmitter emitter) {
 		this.emitters.add(emitter);
 		log.info("new emitter added:{}", emitter);
 		log.info("emitter list size:{}", emitters.size());
-		emitter.onCompletion(()->{
+//		this.emitters.remove(emitter);
+		emitter.onCompletion(() -> {
 			log.info("onCompletion callback");
 			this.emitters.remove(emitter);
 		});
-		emitter.onError(throwable->{
+		emitter.onError(throwable -> {
 			log.error("SseEmitters파일 add메서드");
 			log.error("", throwable);
 			emitter.complete();
+			this.emitters.remove(emitter);
 		});
-		
-		emitter.onTimeout(()->{
+
+		emitter.onTimeout(() -> {
 			log.info("timeout!");
 			emitter.complete();
 		});
-		
+
 		return emitter;
-	}//add 종료
-	
-	
+	}// add 종료
+
+	void remove(SseEmitter emitter) {
+		this.emitters.remove(emitter);
+	}// remove
+
 	public void count(RoomDto rDto) {
-		long count=counter.incrementAndGet();
+//		this.emitters.remove(emitter);
+		long count = counter.incrementAndGet();
 		log.info("count into2");
-		log.info("====={}",rDto);
-		List<RoomDto> rList=rSer.roominsert(rDto);
-		emitters.forEach(emitter->{
+		log.info("====={}", rDto);
+		List<RoomDto> rList = rSer.roominsert(rDto);
+		emitters.forEach(emitter -> {
 			try {
-				emitter.send(SseEmitter.event()
-						.name("count")
-						.data(rList));
-			}catch(IOException e) {
+				emitter.send(SseEmitter.event().name("count").data(rList));
+			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
 		});
-	}//count 종료
-	
-//	void remove(SseEmitter emitter) {
-//		this.emitters.remove(emitter);
-//	}//remove
-	
+	}// count 종료
+
 //	public void changeRoom(Object roomInfo) {
 //		emitters.forEach(emitter->{
 //			try {

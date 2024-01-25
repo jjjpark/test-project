@@ -7,20 +7,23 @@ sse.addEventListener('connect', (e) => { // connect라는 이름을 가진 이�
 
 
 sse.addEventListener('count', (e) => { // count라는 이름을 가진 이벤트를 받는다
-	const { data: result } = e;
+	const { data: roomlist} = e;
 //	let i=0;
-	console.log('count event data: ',result);  // "connected
+//	console.log('count event data: ',result);  // "connected
 //	result.forEach((result, i)=>{
 //		console.log(result)
-//			
-	let result2=JSON.parse(result)
-	for(let i in result){
-		console.log(result2[i])
-		
-	}
-			
-//	})
-});
+	let result=JSON.parse(roomlist)
+//	console.log(result[0])
+//	console.log(result[result.length-1].title)
+		const temp=document.createElement("div");
+		temp.innerHTML=`<div id="rlist">
+						<h1>${result[0].title}</h1>
+						<p>${result[0].position}</p>
+						<p>${result[0].memo}</p>
+						<p>${result[0].champion}</p>
+						`
+		document.querySelector(".rlist").prepend(temp);
+	});
 
 $('#test').on("click",function(){
 	console.log("ajax steart")

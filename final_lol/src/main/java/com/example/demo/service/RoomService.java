@@ -18,10 +18,14 @@ public class RoomService {
 		List<RoomDto> rList=rDao.roomsearch();
 		return rList;
 	}
+	public List<RoomDto> newroom(){
+		List<RoomDto> rList=rDao.roomsearch();
+		return rList;
+	}
 	
 	public List<RoomDto> roominsert(RoomDto rDto) {
 		boolean check=rDao.roomcreate(rDto);
-		if(check) {return roomsearch();}
+		if(check) {return newroom();}
 		else {return null;}
 	}
 }
