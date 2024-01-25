@@ -39,21 +39,21 @@ public class SseEmitters {
 			log.error("SseEmitters파일 add메서드");
 			log.error("", throwable);
 			emitter.complete();
-			this.emitters.remove(emitter);
+//			this.emitters.remove(emitter);
 		});
 
 		emitter.onTimeout(() -> {
 			log.info("timeout!");
 			emitter.complete();
 		});
-
 		return emitter;
+		
 	}// add 종료
-
+	
 	void remove(SseEmitter emitter) {
 		this.emitters.remove(emitter);
 	}// remove
-
+	
 	public void count(RoomDto rDto) {
 //		this.emitters.remove(emitter);
 		long count = counter.incrementAndGet();
@@ -68,7 +68,18 @@ public class SseEmitters {
 			}
 		});
 	}// count 종료
-
+	
+	public void start() {
+		long count=counter.incrementAndGet();
+		log.info("start into");
+		emitters.forEach(emitter->{
+			try {
+				emitter.send(SseEmitter.event().name("start").data("stert"));
+			}catch(IOException e) {
+				throw new RuntimeException(e);
+			}
+		});
+	}
 //	public void changeRoom(Object roomInfo) {
 //		emitters.forEach(emitter->{
 //			try {

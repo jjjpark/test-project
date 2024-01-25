@@ -1,5 +1,12 @@
 const sse=new EventSource("http://localhost:80/duo_matching/matching");
 
+$(document).ready(function(){
+	$.ajax({
+		method:'get',
+		url:'/start',
+	}).done()
+})
+
 sse.addEventListener('connect', (e) => { // connect라는 이름을 가진 이벤트를 받는다
 	const { data: receivedConnectData } = e;
 	console.log('connect event data: ',receivedConnectData);  // "connected
@@ -8,6 +15,7 @@ sse.addEventListener('connect', (e) => { // connect라는 이름을 가진 이�
 
 sse.addEventListener('count', (e) => { // count라는 이름을 가진 이벤트를 받는다
 	const { data: roomlist} = e;
+	console.log('event');
 //	let i=0;
 //	console.log('count event data: ',result);  // "connected
 //	result.forEach((result, i)=>{
@@ -45,7 +53,7 @@ $('#test').on("click",function(){
 		url:'/count',
 		data:data,
 	}).done(function(count){
-//		console.log(count);
+		console.log("evbvne");
 //		$("result").html(count)
 	})
 })
