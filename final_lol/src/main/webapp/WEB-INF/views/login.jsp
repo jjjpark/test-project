@@ -7,14 +7,12 @@
 <title>로그인페이지</title>
 </head>
 <body>
-<h1>로그인page</h1>
- <form action="/login" method="post">
-        <label for="username">아이디</label>
-        <input type="text" id="username" name="username" required><br>
-        <label for="password">비밀번호</label>
-        <input type="password" id="password" name="password" required><br>
-        <input type="submit" value="Login">
+    <form action="/login" method="post">
+        <input type="text" name="userid" placeholder="아이디"><br>
+        <input type="text" name="userpwd" placeholder="비밀번호"><br>
+        <input type="submit" value="로그인"><br>
+       
     </form>
-
+    <button><a href="register">회원가입</a></button><br>
 </body>
 </html>

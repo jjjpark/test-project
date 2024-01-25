@@ -13,5 +13,14 @@ public interface UserDao {
 	
 	void insertUser(UserDto userDto); //회원가입 insert
 
+	UserDto getUserId(String id);
+
+	
+
+
+	
+
+
+	
 
 }

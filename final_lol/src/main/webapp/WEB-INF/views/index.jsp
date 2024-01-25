@@ -9,11 +9,30 @@
 <body>
 
 <h1>INDEX 메인페이지</h1>
-
-    <form action="${pageContext.request.contextPath}/search" method="post">
+  <a href="/register">회원가입</a>
+    <a href="/login">로그인</a>
+    <a href="#">게시판</a>
+    
+      <form action="${pageContext.request.contextPath}/search" method="post">
         <label for="summonerName">Summoner Name:</label>
         <input type="text" id="summonerName" name="summonerName" />
         <button type="submit">Search</button>
     </form>
+</body>
+</html>
+
+
+
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 </body>
 </html>

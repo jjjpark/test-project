@@ -19,4 +19,7 @@ public class UserService {
 	public void register(UserDto userDto) {
 		uDao.insertUser(userDto);
 	}
-}
+
+	
+	
+	    }
