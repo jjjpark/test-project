@@ -27,7 +27,6 @@ import jakarta.servlet.http.HttpSession;
 public class UserController {
 
 	@Autowired
-<<<<<<< HEAD
 	private UserService uSer;
 
 	@GetMapping("/login")
@@ -67,8 +66,6 @@ public class UserController {
 		return "redirect:/login";
 	}
 	@Autowired
-=======
->>>>>>> parent of 2201ecf (sse 작업완료)
 	RoomService rSer;
 	
 	@GetMapping("/")

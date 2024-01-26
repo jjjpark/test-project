@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-<h3>index.jsp</h3>
-<a href="/duo_maching/matching">매칭 들어가기</a>
-=======
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -31,22 +18,7 @@
         <input type="text" id="summonerName" name="summonerName" />
         <button type="submit">Search</button>
     </form>
-</body>
-</html>
-
-
-
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
->>>>>>> 8ee57d56921c3022c0de2b7b2c2bd56467dd8554
+    <h3>index.jsp</h3>
+	<a href="/duo_maching/matching">매칭 들어가기</a>
 </body>
 </html>
