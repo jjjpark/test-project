@@ -16,10 +16,4 @@ public class UserService {
         return uDao.getUserList();
     }
 	
-	public void register(UserDto userDto) {
-		uDao.insertUser(userDto);
-	}
-
-	
-	
 	    }

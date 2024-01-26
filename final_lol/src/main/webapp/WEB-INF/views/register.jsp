@@ -1,38 +1,38 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Register page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Register page</title>
 </head>
 <body>
-    <h1>회원가입 page</h1>
-    <form action="/register" id="registerForm">
-    
-      
-      <input type="text" id="ireum" name="ireum" placeholder="이름" required><br>
-   
-      <input type="text" id="username" name="username" oninput="checkId()" placeholder="아이디" required><br>
-      <span id="idCheckMessage"></span>
-      
-      <input type="text" id="nickname" name="nickname" placeholder="닉네임" required><br>
-    
-      
-      <input type="password" id="userpwd" name="userpwd" placeholder="비밀번호 " required><br>
-      <input type="password" id="confirm_pwd" name="confirm_pwd" placeholder="비밀번호 재입력" required><br>
-   
-      <label for="gender">성별:</label>
-      <select id="gender" name="gender" required>
-          <option value="male">남성</option>
-          <option value="female">여성</option>
-      </select>
-      <br>
-      <button class="button register-button" type="button" onclick="register()">가입하기</button>
-   
-    </form>
-    
-    <script>
+	<h1>회원가입 page</h1>
+	<form action="/register" id="registerForm">
+
+
+		<input type="text" id="ireum" name="ireum" placeholder="이름" required><br>
+
+		<input type="text" id="username" name="username" oninput="checkId()"
+			placeholder="아이디" required><br> <span
+			id="idCheckMessage"></span> <input type="text" id="nickname"
+			name="nickname" placeholder="닉네임" required><br> <input
+			type="password" id="userpwd" name="userpwd" placeholder="비밀번호 "
+			required><br> <input type="password" id="confirm_pwd"
+			name="confirm_pwd" placeholder="비밀번호 재입력" required><br>
+
+		<label for="gender">성별:</label> <select id="gender" name="gender"
+			required>
+			<option value="male">남성</option>
+			<option value="female">여성</option>
+		</select> <br>
+		<button class="button register-button" type="button"
+			onclick="register()">가입하기</button>
+
+	</form>
+
+	<script>
     function register() {
         let username = document.getElementById("username").value;
         let userpwd = document.getElementById("userpwd").value;
