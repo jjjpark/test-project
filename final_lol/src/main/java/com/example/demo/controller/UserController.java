@@ -10,10 +10,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.example.demo.dto.UserDto;
 import com.example.demo.service.UserService;
 import jakarta.servlet.http.HttpSession;
+<<<<<<< HEAD
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
+=======
+
+@Controller
+>>>>>>> main
 public class UserController {
 
 	@Autowired
@@ -44,7 +49,11 @@ public class UserController {
 	}
 
 	@PostMapping("/register")
+<<<<<<< HEAD
 	public String signup(UserDto userDto,Model model) { // 회원가입
+=======
+	public String signup(UserDto userDto) { // 회원가입
+>>>>>>> main
 		try {
 			uSer.register(userDto);
 		} catch (DuplicateKeyException e) {
