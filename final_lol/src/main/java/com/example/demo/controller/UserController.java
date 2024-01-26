@@ -1,49 +1,59 @@
 package com.example.demo.controller;
 
-import java.util.HashMap;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import com.example.demo.dto.UserDto;
 import com.example.demo.service.UserService;
-import lombok.extern.log4j.Log4j2;
+import jakarta.servlet.http.HttpSession;
+import lombok.extern.slf4j.Slf4j;
 
 @Controller
-@Log4j2
+@Slf4j
 public class UserController {
 
 	@Autowired
 	private UserService uSer;
+
 	@GetMapping("/login")
-	public String Showlogin() {
-		log.info("로그인페이지");
-		return "login";
+	public String loginForm(HttpSession session) {
+	    Long userId = (Long) session.getAttribute("userId");
+	    if (userId != null) { // 로그인된 상태
+	        return "redirect:/";
+	    }
+	    return "login"; // 로그인되지 않은 상태
+	}
+
+
+	@GetMapping("/userList")
+	public String getUserList(Model model) {
+		List<UserDto> userList = uSer.getUserList();
+		model.addAttribute("list", userList);
+		return "userList";
 	}
 
 	@GetMapping("/register")
-	public String UserRrgister() {
-		log.info("회원가입페이지");
+	public String RrgisterForm() {
+
 		return "register";
+
 	}
 
 	@PostMapping("/register")
-	//회원가입
-	public String Register(UserDto userDto, Model model) {
-		HashMap<String, Object> resultMap = new HashMap<>();
+	public String signup(UserDto userDto,Model model) { // 회원가입
 		try {
 			uSer.register(userDto);
-			resultMap.put("success", true);
-			resultMap.put("message", "회원가입 성공");
+		} catch (DuplicateKeyException e) {
+			return "redirect:/register?error_code=-1";
 		} catch (Exception e) {
-			resultMap.put("success", false);
-			resultMap.put("message", "회원가입 실패: " + e.getMessage());
+			e.printStackTrace();
+			return "redirect:/register?error_code=-99";
 		}
-		//회원가입 성공하면 로그인페이지 ,실패하면 다시회원가입페이지로
-		model.addAllAttributes(resultMap);
-		return resultMap.get("success") == Boolean.TRUE ? 
-				"redirect:/login" : "/register";
+		return "redirect:/login";
 	}
+
 }
