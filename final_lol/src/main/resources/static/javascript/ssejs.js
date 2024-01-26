@@ -1,5 +1,12 @@
 const sse=new EventSource("http://localhost:80/duo_matching/matching");
 
+$(document).ready(function(){
+	$.ajax({
+		method:'get',
+		url:'/start',
+	}).done()
+})
+
 sse.addEventListener('connect', (e) => { // connect라는 이름을 가진 이벤트를 받는다
 	const { data: receivedConnectData } = e;
 	console.log('connect event data: ',receivedConnectData);  // "connected

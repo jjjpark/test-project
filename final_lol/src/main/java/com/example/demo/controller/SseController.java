@@ -47,4 +47,10 @@ public class SseController {
 		sseEmitters.count(rDto);
 		return ResponseEntity.ok().build();
 	}
+	@GetMapping("/start")
+	public ResponseEntity<Void> start(){
+		log.info("=====dummy data");
+		sseEmitters.start();
+		return ResponseEntity.ok().build();
+	}
 }

@@ -52,6 +52,17 @@ public class SseEmitters {
 	void remove(SseEmitter emitter) {
 		this.emitters.remove(emitter);
 	}// remove
+	public void start() {
+		long count=counter.incrementAndGet();
+		log.info("start into");
+		emitters.forEach(emitter->{
+			try {
+				emitter.send(SseEmitter.event().name("start").data("stert"));
+			}catch(IOException e) {
+				throw new RuntimeException(e);
+			}
+		});
+	}
 
 	public void count(RoomDto rDto) {
 //		this.emitters.remove(emitter);
