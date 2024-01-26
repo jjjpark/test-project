@@ -49,12 +49,12 @@ public class SseEmitters {
 	}
 
 	public void count(RoomDto rDto) {
-		long count = counter.incrementAndGet();
+//		long count = counter.incrementAndGet();
 		
 		log.info("count into2");
 		log.info("====={}", rDto);
-//		List<RoomDto> rList = rSer.roominsert(rDto);
-		RoomDto rList = rSer.roominsert(rDto);	
+		List<RoomDto> rList = rSer.roominsert(rDto);
+//		RoomDto rList = rSer.roominsert(rDto);
 		em.forEach(emitter -> {
 			try {
 				emitter.send(SseEmitter.event().name("count").data(rList));
@@ -68,6 +68,18 @@ public class SseEmitters {
 		em.forEach(emitter -> {
 			try {
 				emitter.send(SseEmitter.event().name("start").data("1"));
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+		});
+	}
+
+	public void delete(RoomDto rDto) {
+		RoomDto rd = rSer.roomDelete(rDto);
+		
+		em.forEach(emitter -> {
+			try {
+				emitter.send(SseEmitter.event().name("delete").data(rd));
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}

@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RoomDto {
+	private int t_id;
 	private String id;
 	private String title;
 	private String tier;

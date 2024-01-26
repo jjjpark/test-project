@@ -1,12 +1,16 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.demo.dto.RoomDto;
 import com.example.demo.dto.UserDto;
+import com.example.demo.service.RoomService;
 import com.example.demo.service.UserService;
 
 import jakarta.servlet.http.HttpSession;
@@ -21,6 +25,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class UserController {
 	@Autowired
 	private UserService uSer;
+	
+	@Autowired
+	private RoomService rSer;
 	
 	@GetMapping("/")
 	public String home() {
@@ -66,8 +73,18 @@ public class UserController {
 	}
 	
 	@GetMapping("/duo/duo")
-	public String duo() {
+	public String duo(Model m) {
+		List<RoomDto> rList = rSer.roomsearch();
+		
+		m.addAttribute("r", rList);
+		
 		return "duo/duo";
+	}
+	
+	@GetMapping("/user/chatting")
+	public String getMethodName() {
+		
+		return "chat/chatting";
 	}
 	
 }

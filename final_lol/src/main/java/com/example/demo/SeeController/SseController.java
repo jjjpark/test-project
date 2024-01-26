@@ -45,11 +45,17 @@ public class SseController {
         return ResponseEntity.ok().build();  
     }
 	
-	@PostMapping("/start")
+	@GetMapping("/start")
 	public ResponseEntity<Void> data() {
 		log.info("TQb");
 		se.start();
 		return ResponseEntity.ok().build();  
 	}
 	
+	@PostMapping("/delete/room")
+	public ResponseEntity<Void> delete(RoomDto rDto) {
+		log.info("ROTORL");
+		se.delete(rDto);
+		return ResponseEntity.ok().build();  
+	}
 }

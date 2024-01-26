@@ -10,8 +10,6 @@ import com.example.demo.dto.RoomDto;
 
 @Service
 public class RoomService {
-//	@Autowired
-//	private RoomDto rDto;
 	@Autowired
 	private RoomDao rDao;
 	
@@ -20,19 +18,19 @@ public class RoomService {
 		return rList;
 	}
 	
-//	public List<RoomDto> roominsert(RoomDto rDto) {
-//		boolean check=rDao.roomcreate(rDto);
-//		if(check) {return roomsearch();}
-//		else {return null;}
-//	}
+	public List<RoomDto> roomInfo() {
+		List<RoomDto> rList = rDao.roomData();
+	    return rList;
+	}
 	
-	public RoomDto roominsert(RoomDto rDto) {
+	public List<RoomDto> roominsert(RoomDto rDto) {
 		boolean check=rDao.roomcreate(rDto);
 		if(check) {return roomInfo();}
 		else {return null;}
 	}
-	
-	public RoomDto roomInfo() {
-	    return rDao.roomData();
+
+	public RoomDto roomDelete(RoomDto rDto) {
+		RoomDto rd = rDao.deleteRoom(rDto);
+		return rDto;
 	}
 }

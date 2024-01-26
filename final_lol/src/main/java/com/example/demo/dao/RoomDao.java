@@ -12,5 +12,7 @@ public interface RoomDao {
 	
 	List<RoomDto> roomsearch();
 	
-	RoomDto roomData();
+	List<RoomDto> roomData();
+
+	RoomDto deleteRoom(RoomDto rDto);
 }
