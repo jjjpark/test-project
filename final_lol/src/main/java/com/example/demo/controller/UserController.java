@@ -56,7 +56,7 @@ public class UserController {
 	@PostMapping("/register")
 	public String signup(UserDto userDto) { // 회원가입
 		try {
-			uSer.register(userDto);
+//			uSer.register(userDto);
 		} catch (DuplicateKeyException e) {
 			return "redirect:/register?error_code=-1";
 		} catch (Exception e) {
@@ -65,19 +65,6 @@ public class UserController {
 		}
 		return "redirect:/login";
 	}
-	@Autowired
-	RoomService rSer;
-	
-	@GetMapping("/")
-	public String main() {
-		return "index";
-	}
-	@GetMapping("/duo_maching/matching")
-	public String room(Model model) {
-		log.info("======move");
-		List<RoomDto> rList=rSer.roomsearch();
-		model.addAttribute("rList", rList);
-		return "duo_matching/matching";
-	}
+
 
 }

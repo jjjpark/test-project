@@ -19,6 +19,6 @@
         <button type="submit">Search</button>
     </form>
     <h3>index.jsp</h3>
-	<a href="/duo_maching/matching">매칭 들어가기</a>
+	<a href="/duo_matching/chatList">매칭 들어가기</a>
 </body>
 </html>
