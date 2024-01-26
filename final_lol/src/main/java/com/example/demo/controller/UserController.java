@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
-import com.example.demo.config.SseEmitters;
 import com.example.demo.dto.RoomDto;
 import com.example.demo.service.RoomService;
 
@@ -68,8 +66,6 @@ public class UserController {
 		return "redirect:/login";
 	}
 	@Autowired
-	SseEmitters smit;
-	@Autowired
 	RoomService rSer;
 	
 	@GetMapping("/")
@@ -81,7 +77,6 @@ public class UserController {
 		log.info("======move");
 		List<RoomDto> rList=rSer.roomsearch();
 		model.addAttribute("rList", rList);
-
 		return "duo_matching/matching";
 	}
 

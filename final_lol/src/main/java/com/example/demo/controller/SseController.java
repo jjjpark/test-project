@@ -28,6 +28,7 @@ public class SseController {
 	@GetMapping(value="/duo_matching/matching", produces=MediaType.TEXT_EVENT_STREAM_VALUE)
 	public ResponseEntity<SseEmitter> connect(){
 		SseEmitter emitter=new SseEmitter(5*60*1000L);
+		sseEmitters.add(emitter);
 		try {
 			emitter.send(SseEmitter.event()
 					.name("connect")
@@ -35,18 +36,14 @@ public class SseController {
 		}catch(IOException e) {
 			throw new RuntimeException(e);
 		}
-		sseEmitters.add(emitter);
+		
 		return ResponseEntity.ok(emitter);
 	}
-	@GetMapping("/start")
-	public ResponseEntity<Void> start(){
-		log.info("=====dummy data");
-		sseEmitters.start();
-		return ResponseEntity.ok().build();
-	}
+	
 	@PostMapping("/count")
 	public ResponseEntity<Void> count(RoomDto rDto){
 		log.info("==============into count");
+		
 		sseEmitters.count(rDto);
 		return ResponseEntity.ok().build();
 	}
