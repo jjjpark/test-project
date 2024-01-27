@@ -1,15 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-<<<<<<< HEAD
-    pageEncoding="UTF-8"%>
-=======
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
->>>>>>> 58f9ecd9e071598ff1fa33eeb740af7e3be8d525
+
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-<<<<<<< HEAD
     <title>Summoner Search</title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
@@ -76,6 +72,7 @@
     </script>
 </head>
 <body>
+   <a href="/duo_matching/chatList">매칭 들어가기</a>
     <h1>Summoner Search</h1>
     <form id="searchForm">
         <label for="gameName">gameName:</label>
@@ -103,23 +100,3 @@
     </table>
 </body>
 </html>
-=======
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Summoner Search</title>
-</head>
-<body>
-<h1>INDEX 메인페이지</h1>
-  <a href="/register">회원가입</a>
-    <a href="/login">로그인</a>
-    <a href="#">게시판</a>
-    
-      <form action="${pageContext.request.contextPath}/search" method="post">
-        <label for="summonerName">Summoner Name:</label>
-        <input type="text" id="summonerName" name="summonerName" />
-        <button type="submit">Search</button>
-    </form>
-    <h3>index.jsp</h3>
-	<a href="/duo_matching/chatList">매칭 들어가기</a>
-</body>
-</html>
->>>>>>> 58f9ecd9e071598ff1fa33eeb740af7e3be8d525
