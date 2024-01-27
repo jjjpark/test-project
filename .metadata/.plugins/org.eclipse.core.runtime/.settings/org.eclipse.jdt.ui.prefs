@@ -1,4 +1,6 @@
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"/>
 content_assist_number_of_computers=15
 =======
@@ -6,15 +8,11 @@ content_assist_completion_replacement_background=200,200,0
 content_assist_completion_replacement_foreground=200,0,0
 <<<<<<< HEAD
 =======
+>>>>>>> 58f9ecd9e071598ff1fa33eeb740af7e3be8d525
 content_assist_favorite_static_members=org.assertj.core.api.Assertions.*;org.mockito.Matchers.*;org.mockito.Mockito.*;org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestBuilders.*;org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.*;org.springframework.security.test.web.servlet.response.SecurityMockMvcResultMatchers.*;org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.*;org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.*;org.springframework.test.web.client.match.MockRestRequestMatchers.*;org.springframework.test.web.client.response.MockRestResponseCreators.*;org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;org.hamcrest.CoreMatchers.*;org.junit.Assert.*
 >>>>>>> 8ee57d56921c3022c0de2b7b2c2bd56467dd8554
 content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"/>
 content_assist_number_of_computers=15
-content_assist_parameters_background=52,57,61
-content_assist_parameters_foreground=238,238,238
-content_assist_proposals_background=52,57,61
-content_assist_proposals_foreground=238,238,238
->>>>>>> f9d86f473f81364d73e94af718eb62cddf06e186
 eclipse.preferences.version=1
 org.eclipse.jdt.ui.formatterprofiles.version=23
 spelling_locale_initialized=true
