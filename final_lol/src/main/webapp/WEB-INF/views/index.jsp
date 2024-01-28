@@ -15,14 +15,12 @@
 	<a href="#">게시판</a>
 
 	<form action="${pageContext.request.contextPath}/search" method="post">
-		<label for="summonerName">Summoner Name:</label> <input type="text"
-			id="summonerName" name="summonerName" />
+		<label for="summonerName">Summoner Name:</label> 
+		<input type="text"id="summonerName" name="summonerName" />
 		<button type="submit">Search</button>
 	</form>
 </body>
 </html>
-<<<<<<< HEAD
-=======
 
 
 

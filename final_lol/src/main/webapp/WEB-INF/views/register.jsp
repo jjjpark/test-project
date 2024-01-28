@@ -9,54 +9,38 @@
 </head>
 <body>
 	<h1>회원가입 page</h1>
-<<<<<<< HEAD
-	<form action="/register" id="registerForm" method="post">
-=======
-	<form action="/register" id="registerForm">
->>>>>>> main
 
+	<form action="register" id="registerForm" method="post">
 
-		<input type="text" id="ireum" name="ireum" placeholder="이름" required><br>
+		<input type="text" id="user_name" name="user_name" placeholder="이름" required><br>
 
-		<input type="text" id="username" name="username" oninput="checkId()"
-			placeholder="아이디" required><br> <span
-			id="idCheckMessage"></span> <input type="text" id="nickname"
-			name="nickname" placeholder="닉네임" required><br> <input
-			type="password" id="userpwd" name="userpwd" placeholder="비밀번호 "
-			required><br> <input type="password" id="confirm_pwd"
-			name="confirm_pwd" placeholder="비밀번호 재입력" required><br>
-
-		<label for="gender">성별:</label> <select id="gender" name="gender"
-			required>
+		<input type="text" id="user_id" name="user_id" oninput="checkId()"placeholder="아이디" required><br> 
+		<span id="idCheckMessage"></span> 
+		<input type="text" id="nickname"name="nickname" placeholder="닉네임" required><br> 
+		<input type="password" id="user_pwd" name="user_pwd" placeholder="비밀번호 "required><br> 
+			<input type="password" id="confirm_pwd" name="confirm_pwd" placeholder="비밀번호 재입력" required><br>
+	<label for="gender">성별:</label> <select id="gender" name="gender" required>
 			<option value="male">남성</option>
 			<option value="female">여성</option>
-		</select> <br>
-<<<<<<< HEAD
-		<input type="submit" onclick="register()" value="회원가입">가입하기
-
+		</select> <br> <input type="submit" onclick="register()" value="회원가입">
 	</form>
-	
-=======
-		<button class="button register-button" type="button"
-			onclick="register()">가입하기</button>
 
-	</form>
->>>>>>> main
+
 
 	<script>
     function register() {
-        let username = document.getElementById("username").value;
-        let userpwd = document.getElementById("userpwd").value;
+        let user_id = document.getElementById("user_id").value;
+        let user_pwd = document.getElementById("user_pwd").value;
         let confirmpwd = document.getElementById("confirm_pwd").value;
 
         // 아이디 유효성 검사
-        if (!/^[a-zA-Z0-9]{3,}$/.test(username)) {
+        if (!/^[a-zA-Z0-9]{3,}$/.test(user_id)) {
             alert("아이디는 3자 이상의 영문/숫자로 입력해주세요.");
             return;
         }
 
         // 비밀번호 유효성 검사
-        if (userpwd !== confirmpwd) {
+        if (user_pwd !== confirmpwd) {
             alert("비밀번호가 일치하지 않습니다.");
             return;
         }
@@ -66,7 +50,7 @@
     }
 
     function checkId() {
-        let username = document.getElementById("username").value;
+        let username = document.getElementById("user_id").value;
         let idCheckMessageElement = document.getElementById("idCheckMessage");
 
         // 아이디 길이 검사
@@ -83,19 +67,24 @@
             return;
         }
 
-        // 비동기 fetch 함수, register 함수 내에서 선언한 checkId 함수
-        fetch('/register/checkId?username=' + username)
-            .then(response => response.json())
-            .then(data => {
-                if (data.isDuplicated) {
-                    idCheckMessageElement.innerText = "이 아이디는 이미 사용 중입니다.";
-                    idCheckMessageElement.style.color = "red";
-                } else {
-                    idCheckMessageElement.innerText = "사용 가능한 아이디입니다.";
-                    idCheckMessageElement.style.color = "green";
-                }
-            });
+         // 비동기 fetch 함수, register 함수 내에서 선언한 checkId 함수
+        fetch('/register/checkId?user_id=' + user_id)
+             .then(response => response.json())
+             
+             
+             .then(data => {
+                 if (data.isDuplicated) {
+                     idCheckMessageElement.innerText = "이 아이디는 이미 사용 중입니다.";
+                     idCheckMessageElement.style.color = "red";
+                 } else {
+                     idCheckMessageElement.innerText = "사용 가능한 아이디입니다.";
+                     idCheckMessageElement.style.color = "green";
+                 }
+             });
     }
     </script>
+    	<p>
+			이미 계정이 있으신가요? <a href="/login">로그인</a>
+		</p>
 </body>
 </html>

@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
@@ -7,33 +8,31 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.example.demo.dto.UserDto;
 import com.example.demo.service.UserService;
 import jakarta.servlet.http.HttpSession;
-<<<<<<< HEAD
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
-=======
 
-@Controller
->>>>>>> main
 public class UserController {
 
 	@Autowired
 	private UserService uSer;
 
 	@GetMapping("/login")
-	public String loginForm(HttpSession session) {
-	    Long userId = (Long) session.getAttribute("userId");
-	    if (userId != null) { // 로그인된 상태
-	        return "redirect:/";
-	    }
-	    return "login"; // 로그인되지 않은 상태
+	public String loginForm() {
+	log.info("로그인화면");
+		return "login"; 
 	}
 
-
+	
+	
+	
 	@GetMapping("/userList")
 	public String getUserList(Model model) {
 		List<UserDto> userList = uSer.getUserList();
@@ -42,18 +41,15 @@ public class UserController {
 	}
 
 	@GetMapping("/register")
-	public String RrgisterForm() {
-
+	public String rgisterForm() {
+		log.info("회원가입화면!");
 		return "register";
 
 	}
 
 	@PostMapping("/register")
-<<<<<<< HEAD
-	public String signup(UserDto userDto,Model model) { // 회원가입
-=======
-	public String signup(UserDto userDto) { // 회원가입
->>>>>>> main
+	public String register(UserDto userDto, Model model) { // 회원가입
+
 		try {
 			uSer.register(userDto);
 		} catch (DuplicateKeyException e) {
