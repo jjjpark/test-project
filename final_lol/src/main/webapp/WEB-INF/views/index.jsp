@@ -1,4 +1,12 @@
+<<<<<<< HEAD
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<!DOCTYPE html>
+=======
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+>>>>>>> main
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
@@ -70,6 +78,7 @@
     </script>
 </head>
 <body>
+   <a href="/duo_matching/chatList">매칭 들어가기</a>
     <h1>Summoner Search</h1>
     <form id="searchForm" method="post"> <!-- method 속성 추가 -->
         <label for="gameName">gameName:</label>
@@ -95,6 +104,8 @@
         <tbody><!-- Game information will be displayed here -->
         </tbody>
     </table>
+<<<<<<< HEAD
+=======
 =======
 	<h1>INDEX 메인페이지</h1>
 	<a href="/register">회원가입</a>
@@ -107,5 +118,6 @@
 		<button type="submit">Search</button>
 	</form>
 >>>>>>> ys
+>>>>>>> main
 </body>
 </html>
