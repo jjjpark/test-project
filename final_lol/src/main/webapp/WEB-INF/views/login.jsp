@@ -11,8 +11,8 @@
 <h1>로그인페이지</h1>
 
  <form id="login-form" onsubmit="return validateLoginForm()" action="login" method="post">
-    <input type="text" id="user_id" name="user_id" required placeholder="아이디"><br>
-    <input type="password" id="user_pw" name="user_pw" required placeholder="비밀번호"><br>
+    <input type="text" id="id" name="id" required placeholder="아이디"><br>
+    <input type="password" id="password" name="password" required placeholder="비밀번호"><br>
     <button class="login-button" type="submit">로그인</button>
   
     <div class="find_signupcontain">

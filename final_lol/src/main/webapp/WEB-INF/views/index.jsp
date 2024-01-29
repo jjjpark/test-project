@@ -21,20 +21,3 @@
 	</form>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> main
-
-</body>
-</html>
