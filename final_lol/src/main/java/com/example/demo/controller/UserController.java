@@ -9,26 +9,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.demo.dto.RoomDto;
 import com.example.demo.service.RoomService;
-
 import lombok.extern.slf4j.Slf4j;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DuplicateKeyException;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import com.example.demo.dto.UserDto;
-import com.example.demo.service.UserService;
-import jakarta.servlet.http.HttpSession;
 
 @Controller
 @Slf4j
 public class UserController {
 
-	@Autowired
-	private UserService uSer;
 
+<<<<<<< HEAD
 	@GetMapping("/login")
 	public String loginForm(HttpSession session) {
 	    Long userId = (Long) session.getAttribute("userId");
@@ -66,5 +55,17 @@ public class UserController {
 		return "redirect:/login";
 	}
 
+=======
+	@Autowired
+	RoomService rSer;
+	
+	@GetMapping("/duo_maching/matching")
+	public String room(Model model) {
+		log.info("======move");
+		List<RoomDto> rList=rSer.roomsearch();
+		model.addAttribute("rList", rList);
+		return "duo_matching/matching";
+	}
+>>>>>>> main
 
 }
