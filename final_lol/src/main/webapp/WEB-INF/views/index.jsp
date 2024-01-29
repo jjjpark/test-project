@@ -122,4 +122,26 @@
 	<a href="/duo_maching/matching">매칭 들어가기</a>
 </body>
 </html>
+<<<<<<< HEAD
 >>>>>>> 58f9ecd9e071598ff1fa33eeb740af7e3be8d525
+=======
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> main
+
+</body>
+</html>
+>>>>>>> e9746785505a6e4aef761cf8ca82580f438e524d

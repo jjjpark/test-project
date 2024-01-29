@@ -9,7 +9,11 @@
 </head>
 <body>
 	<h1>회원가입 page</h1>
+<<<<<<< HEAD
+	<form action="/register" id="registerForm" method="post">
+=======
 	<form action="/register" id="registerForm">
+>>>>>>> main
 
 
 		<input type="text" id="ireum" name="ireum" placeholder="이름" required><br>
@@ -27,10 +31,17 @@
 			<option value="male">남성</option>
 			<option value="female">여성</option>
 		</select> <br>
+<<<<<<< HEAD
+		<input type="submit" onclick="register()" value="회원가입">가입하기
+
+	</form>
+	
+=======
 		<button class="button register-button" type="button"
 			onclick="register()">가입하기</button>
 
 	</form>
+>>>>>>> main
 
 	<script>
     function register() {

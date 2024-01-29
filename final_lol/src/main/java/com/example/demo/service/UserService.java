@@ -18,6 +18,14 @@ public class UserService {
 	public List<UserDto> getUserList() {
         return uDao.getUserList();
     }
+<<<<<<< HEAD
+
+	public void register(UserDto userDto) {
+		// TODO Auto-generated method stub
+		
+	}
+=======
+>>>>>>> main
 	
 	    }
 
