@@ -79,6 +79,7 @@
         <input type="submit" value="Search">
     </form>
 
+<<<<<<< HEAD
     <h2>Game Information</h2>
     <table id="gameInfoTable" border="1">
         <thead>
@@ -94,5 +95,17 @@
         <tbody><!-- Game information will be displayed here -->
         </tbody>
     </table>
+=======
+	<h1>INDEX 메인페이지</h1>
+	<a href="/register">회원가입</a>
+	<a href="/login">로그인</a>
+	<a href="#">게시판</a>
+
+	<form action="${pageContext.request.contextPath}/search" method="post">
+		<label for="summonerName">Summoner Name:</label> 
+		<input type="text"id="summonerName" name="summonerName" />
+		<button type="submit">Search</button>
+	</form>
+>>>>>>> ys
 </body>
 </html>
