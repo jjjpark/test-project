@@ -108,6 +108,7 @@
 <title>Summoner Search</title>
 </head>
 <body>
+<<<<<<< HEAD
 <h1>INDEX 메인페이지</h1>
   <a href="/register">회원가입</a>
     <a href="/login">로그인</a>
@@ -145,3 +146,18 @@
 </body>
 </html>
 >>>>>>> e9746785505a6e4aef761cf8ca82580f438e524d
+=======
+
+	<h1>INDEX 메인페이지</h1>
+	<a href="/register">회원가입</a>
+	<a href="/login">로그인</a>
+	<a href="#">게시판</a>
+
+	<form action="${pageContext.request.contextPath}/search" method="post">
+		<label for="summonerName">Summoner Name:</label> 
+		<input type="text"id="summonerName" name="summonerName" />
+		<button type="submit">Search</button>
+	</form>
+</body>
+</html>
+>>>>>>> 658bc8d46c18f152ccf9a58000e16a75977438d1
