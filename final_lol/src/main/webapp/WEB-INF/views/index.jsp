@@ -88,7 +88,6 @@
         <input type="submit" value="Search">
     </form>
 
-<<<<<<< HEAD
     <h2>Game Information</h2>
     <table id="gameInfoTable" border="1">
         <thead>
@@ -104,9 +103,7 @@
         <tbody><!-- Game information will be displayed here -->
         </tbody>
     </table>
-<<<<<<< HEAD
-=======
-=======
+
 	<h1>INDEX 메인페이지</h1>
 	<a href="/register">회원가입</a>
 	<a href="/login">로그인</a>
@@ -117,7 +114,5 @@
 		<input type="text"id="summonerName" name="summonerName" />
 		<button type="submit">Search</button>
 	</form>
->>>>>>> ys
->>>>>>> main
 </body>
 </html>
