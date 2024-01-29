@@ -1,4 +1,4 @@
- let socket = new WebSocket("ws://localhost:80/ws/chat");
+let socket = new WebSocket("ws://localhost:80/ws/chat");
 
 
 function enterRoom(socket){
@@ -16,6 +16,7 @@ socket.onclose=(e) => {
     console.log("close");
     console.log(e.code, e.wasClean);
 }
+
 socket.onerror=function(e){
 	console.log(e);
 }
@@ -29,7 +30,7 @@ socket.onmessage=function(e){
 }
 function sendMsg(){
 	let content=document.querySelector('.content').value;
-	var talkMsg={"type":"TALK","roomId":'${room.roomId}',"sender":"chee","msg":""};
+	var talkMsg={"type":"TALK","roomId":'${room.roomId}',"sender":"chee","msg":content};
 	socket.send(JSON.stringify(talkMsg));
 }
 

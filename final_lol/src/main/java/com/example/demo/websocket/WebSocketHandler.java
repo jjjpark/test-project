@@ -43,12 +43,8 @@ public class WebSocketHandler extends TextWebSocketHandler{
 			sessions.remove(session);
 			chatMessage.setMessage(chatMessage.getSender()+"퇴장");
 			sendToEachSocket(sessions,new TextMessage(objectMapper.writeValueAsString(chatMessage)));
-		}else if(chatMessage.getType().equals(ChatMessage.MessageType.ROOM)) {
-			
-		}
-		
-		
-		else {
+		}else {
+			log.info(payload);
 			sendToEachSocket(sessions,message);
 		}
 	}
@@ -63,8 +59,7 @@ public class WebSocketHandler extends TextWebSocketHandler{
 	}
 	@Override
 	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
-		
-		
+			
 	}
 	
 	

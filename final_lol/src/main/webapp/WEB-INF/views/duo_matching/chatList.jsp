@@ -13,7 +13,6 @@
 	<input type="text" name="username" placeholder="유저이름">
 	<button type="submit">방 만들기</button>
 </form>
-
 <c:forEach var="rList" items="${roomList}">
 	<a href="/chatroom?roomId=${room.roomId}"> ${room.name}</a>
 </c:forEach>
