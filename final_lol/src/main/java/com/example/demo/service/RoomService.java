@@ -31,6 +31,6 @@ public class RoomService {
 
 	public RoomDto roomDelete(RoomDto rDto) {
 		RoomDto rd = rDao.deleteRoom(rDto);
-		return rDto;
+		return rd;
 	}
 }

@@ -32,7 +32,7 @@
 <!-- 로그인 한 후 나옴 -->
 <sec:authorize access="isAuthenticated()">
 	<a href="/user/logout">logout</a>
-	<a href="/duo/duo">duo</a>	
+	<a href="/duo/duo">duo</a>
 </sec:authorize>
 
 
