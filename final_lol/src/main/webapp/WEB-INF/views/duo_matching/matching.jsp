@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>matching</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script defer src="/javascript/ssejs.js"></script>
@@ -17,7 +17,7 @@
 	memo<input id="memo" type="text"></input></br>
 	champion<input id="champion" type="text"></input></br>
 <button id="test">test</button>
-<h3>방 리스트</h3>
+<h3>諛� 由ъ뒪�듃</h3>
 <a class="rlist"></a>
 <c:forEach var="rList" items="${rList}">
 <div>

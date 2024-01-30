@@ -1,15 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-<<<<<<< HEAD
-    pageEncoding="UTF-8"%>
-=======
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
->>>>>>> 58f9ecd9e071598ff1fa33eeb740af7e3be8d525
 <!DOCTYPE html>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-<<<<<<< HEAD
     <title>Summoner Search</title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
@@ -43,83 +36,108 @@
                 }
             });
         });
-
+     
         function displayGameInfo(gameInfoList) {
             $("#gameInfoTable tbody").empty();
+
             if (gameInfoList.length > 0) {
                 $.each(gameInfoList, function (index, gameInfo) {
                     var summonerInfo = gameInfo.info.participants.find(function (participant) {
                         return participant.riotIdGameName === gameName && participant.riotIdTagline === tagLine;
                     });
-
+                    var gameWinInfo = gameInfo.info.teams.find(function (team){
+                    	return team.win === summonerInfo.win;
+                    });
                     if (summonerInfo) {
-                        var row = "<tr>" +
-                            "<td>" + gameInfo.info.gameMode + "</td>" +
-                            "<td>" + (summonerInfo.win ? "Win" : "Lose") + "</td>" +
-                            "<td>" + Math.floor(gameInfo.info.gameDuration / 60) + "분" + ((Math.floor(gameInfo.info.gameDuration % 60)) < 10 ? "0" : "") + Math.floor(gameInfo.info.gameDuration % 60) + "초 </td>" +
-                            "<td>" + summonerInfo.championName + "</td>" +
-                            "<td>" + summonerInfo.kills + " / " + summonerInfo.deaths + " / " + summonerInfo.assists + "</td>" +
-                            "<td>" + parseFloat(((summonerInfo.kills + summonerInfo.assists) / summonerInfo.deaths).toFixed(2)) + "</td>" +
+                        var gameRow = "<tr>" +
+                            "<th rowspan='2'>" + gameInfo.info.gameMode + "</th>" +
+                            "<th rowspan='3' colspan='2'>" + summonerInfo.championName + "</th>" +
+                            "<th rowspan='2'>" + summonerInfo.kills + " / " + summonerInfo.deaths + " / " + summonerInfo.assists + "</th>" +
+                            "<th>킬관여율</th>" +
+                            "<th rowspan='3'>" + Math.floor(gameInfo.info.gameDuration / 60) + "분" + ((Math.floor(gameInfo.info.gameDuration % 60)) < 10 ? "0" : "") + Math.floor(gameInfo.info.gameDuration % 60) + "초 </th>" +
+                            "<td rowspan='3' id ='showMore'><button class='btn_toggle' data-index='" + index + "'>더보기</button></td>" +
+                            "</tr>"+
+                        	"<tr>" +
+                        	"<th>"+ parseFloat(((summonerInfo.kills + summonerInfo.assists) / gameWinInfo.objectives.champion.kills)* 100).toFixed(0) +"%</th>" +
+                        	"</tr>" +
+                            "<th>" + (summonerInfo.win ? "승리" : "패배") + "</th>" +
+                            "<th>" + parseFloat(((summonerInfo.kills + summonerInfo.assists) / summonerInfo.deaths).toFixed(2)) + "점 </th>" +
+                            "<th>골드</th>" +
                             "</tr>";
+                        $("#gameInfoTable tbody").append(gameRow);
+               
 
-                        $("#gameInfoTable tbody").append(row);
+                        var showMore = "<tr class='Toggle" + index + "' style='display:none'>" +
+                        	"<th colspan='2'>" + gameInfo.info.gameMode + "</th>" +
+                            "<th>승리(팀컬러)</th>" +
+                            "<th>KDA</th>" +
+                            "<th>피해량</th>" +
+                            "<th>cs</th>" +
+                            "</tr>";
+                        for (var i = 0; i < gameInfo.info.participants.length; i++) {
+                        	showMore += "<tr class='Toggle" + index + "' style='display:none'>" +
+                            	"<td> 챔피언 이미지 </td>" +
+                            	"<td>" + gameInfo.info.participants[i].championName + "</td>" +
+                            	"<td>" + gameInfo.info.participants[i].riotIdGameName + "</td>" +
+                            	"<td>" + parseFloat(((gameInfo.info.participants[i].kills + gameInfo.info.participants[i].assists) / gameInfo.info.participants[i].deaths).toFixed(2)) + "점</td>" +
+                            	"<td>" + gameInfo.info.participants[i].totalDamageDealt + "," + gameInfo.info.participants[i].totalDamageTaken + "</td>" +
+                            	"<td>" + gameInfo.info.participants[i].totalMinionsKilled + "</td>" +
+                            	"</tr>";
+                        }
+                        $("#gameInfoTable tbody").append(showMore);
+                        console.log(showMore);
                     } else {
-                        // Handle the case when summonerInfo is undefined
-                        console.warn("SummonerInfo not found for gameName:", gameName);
+                        // summonerInfo가 정의되지 않은 경우 처리
+                        console.warn("게임 이름에 대한 SummonerInfo를 찾을 수 없습니다:", gameName);
                     }
                 });
+            	
             } else {
-                $("#gameInfoTable tbody").append("<tr><td colspan='3'>No game information available.</td></tr>");
+                $("#gameInfoTable tbody").append("<tr><td colspan='3'>게임 정보가 없습니다.</td></tr>");
             }
         }
-    });
-    </script>
-</head>
-<body>
-    <h1>Summoner Search</h1>
-    <form id="searchForm">
-        <label for="gameName">gameName:</label>
-        <input type="text" id="gameName" name="gameName" required>
-        <label for="tagLine">Tag Line:</label>
-        <input type="text" id="tagLine" name="tagLine"> <!-- 태그라인 입력 필드 추가 -->
-        <input type="submit" value="Search">
-    </form>
+        $(document).on("click", ".btn_toggle", function () {
+        	var currentIndex = $(this).data('index');
+        	console.log("Clicked on button with index:", currentIndex);
+        	$('.Toggle' + currentIndex).toggle();
+    	});
 
-    <h2>Game Information</h2>
-    <table id="gameInfoTable" border="1">
-        <thead>
-            <tr>
-                <th>GameMode</th>
-                <th>Win</th>
-                <th>Time</th>
-                <th>Champion</th>
-                <th>KDA</th>
-                <th>Score</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Game information will be displayed here -->
-        </tbody>
-    </table>
-</body>
-</html>
-=======
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Summoner Search</title>
+    });
+
+</script>
 </head>
 <body>
-<h1>INDEX 메인페이지</h1>
-  <a href="/register">회원가입</a>
-    <a href="/login">로그인</a>
-    <a href="#">게시판</a>
-    
-      <form action="${pageContext.request.contextPath}/search" method="post">
-        <label for="summonerName">Summoner Name:</label>
-        <input type="text" id="summonerName" name="summonerName" />
-        <button type="submit">Search</button>
-    </form>
-    <h3>index.jsp</h3>
-	<a href="/duo_maching/matching">매칭 들어가기</a>
+<h1>Summoner Search</h1>
+<form id="searchForm">
+    <label for="gameName">gameName:</label>
+    <input type="text" id="gameName" name="gameName" required>
+    <label for="tagLine">Tag Line:</label>
+    <input type="text" id="tagLine" name="tagLine"> <!-- 태그라인 입력 필드 추가 -->
+    <input type="submit" value="Search">
+</form>
+
+<h2>Game Information</h2>
+<div >
+    <table id="gameInfoTable" align="center" border="1" width = "600">
+       <tr>
+        <th rowspan="2">게임 모드</th>
+        <th rowspan="3" colspan="2"> 챔피언 사진</th>
+        <th rowspan="2">킬/데스/어시</th>
+        <th>킬관여율</th>
+       <th rowspan="3">게임시간</th>
+       <td rowspan="3" id ="showMore"><button>더보기</button></td>
+
+    </tr>
+    <tr>
+        <th>777</th> 
+    </tr>
+    <tr>
+        <th>승패</th>
+        <th>평균KDa</th>
+        <th>골드</th>
+    </tr>
+    </table>
+</div>
+
 </body>
 </html>
->>>>>>> 58f9ecd9e071598ff1fa33eeb740af7e3be8d525

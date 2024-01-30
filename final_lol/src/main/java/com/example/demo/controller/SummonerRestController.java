@@ -17,7 +17,7 @@ public class SummonerRestController {
 
 	@PostMapping("/search")
 	public List<Map> matchId(Summoner gameName, Summoner tagLine) {
-		String puuid = summonerService.puuId(gameName.getGameName(),tagLine.getTagLine());
+		String puuid = summonerService.puuId(gameName.getGameName(), tagLine.getTagLine());
 		List<String> matchIdList = summonerService.matchIdList(puuid);
 		List<Map> gameInfoList = summonerService.gameInfoList(matchIdList);
 		return gameInfoList;

@@ -56,7 +56,7 @@ public class UserController {
 	@PostMapping("/register")
 	public String signup(UserDto userDto) { // 회원가입
 		try {
-			uSer.register(userDto);
+//			uSer.register(userDto);
 		} catch (DuplicateKeyException e) {
 			return "redirect:/register?error_code=-1";
 		} catch (Exception e) {
@@ -68,7 +68,7 @@ public class UserController {
 	@Autowired
 	RoomService rSer;
 	
-	@GetMapping("/")
+	@GetMapping("/1")
 	public String main() {
 		return "index";
 	}
